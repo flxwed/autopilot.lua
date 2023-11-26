@@ -41,7 +41,7 @@ def main():
     multi_overloads.append(f"((port: PortLike, partType: string) -> {{{part_generator.default_part_name}}})")
     sep = '\n    & '
     content += f"declare GetPartFromPort: {sep.join(single_overloads)}\n"
-    content += f"declare GetPartsFromPort: {sep.join(single_overloads)}\n"
+    content += f"declare GetPartsFromPort: {sep.join(multi_overloads)}\n"
     # Finalize
     content = content.strip().replace("\n\n", "\n") + "\n"
     if not os.path.isdir(os.path.join(project, "build")):
