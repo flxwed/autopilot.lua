@@ -248,7 +248,7 @@
         "extends": "Dispenser"
     },
     "Servo": {
-        "extends": "Dispenser",
+        "extends": "Part",
         "methods": {
             "SetAngle": {
                 "arguments": [{"angle": "number"}]
