@@ -32,7 +32,7 @@ To get started, follow these simple steps:
 5. **Enjoy Full Code Completion:**
    - With the setup complete, you now have full code completion for `pilot.lua` in Visual Studio Code.
 
-# Build Steps
+## Build Steps
 
 If you want to build autopilot.lua from scratch, follow the steps below:
 
