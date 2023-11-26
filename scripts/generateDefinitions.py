@@ -11,12 +11,19 @@ def main():
         print("Error: Project directory must be passed in as a command-line argument.")
         exit(1)
     project = sys.argv[1]
+    license_file = os.path.join(project, "LICENSE")
     globals_file = os.path.join(project, "globals.d.lua")
     types_file = os.path.join(project, "types.d.lua")
     parts_file = os.path.join(project, "parts.json")
     output_file = os.path.join(project, "build", "pilot.d.lua")
-    content = ""
+    # Generate header comment
+    header_content = "--[[\n"
+    with open(license_file, 'r') as fr:
+        for line in fr.readlines():
+            header_content += f"  {line}"
+    header_content += "\n  https://github.com/flxwed/autopilot-lua/\n--]]\n"
     # Generate types
+    content = ""
     with open(types_file, 'r') as fr:
         content += fr.read().strip() + "\n"
     # Get parts data
@@ -49,7 +56,7 @@ def main():
     if not os.path.isdir(os.path.join(project, "build")):
         os.makedirs(os.path.join(project, "build"))
     with open(output_file, 'w+') as fw:
-        fw.write(content)
+        fw.write(header_content + "\n" + content)
         print(f"{output_file} created successfully")
 
 if __name__ == "__main__":
