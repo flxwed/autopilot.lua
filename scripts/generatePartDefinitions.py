@@ -43,6 +43,7 @@ class PartDefinitionsGenerator():
             returns = method.get("returns", "()")
             arguments: list = method.get("arguments", [])
             arguments_code = []
+            arguments_code.append(f"self: {part['_name']}")
             for arg_name, arg_type in _parse_list_dict(arguments):
                 arguments_code.append(f"{arg_name}: {arg_type}")
             code.append(f"{method_name}: ({', '.join(arguments_code)}) -> {returns}")
