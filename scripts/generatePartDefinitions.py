@@ -27,6 +27,7 @@ class PartDefinitionsGenerator():
 
     def _generate_part(self, part: dict):
         code = []
+        # Copy parent
         if "extends" in part:
             super_part = self._get_part(part["extends"])
             if super_part == None:
@@ -35,10 +36,12 @@ class PartDefinitionsGenerator():
                 if not key in part:
                     part.update({key: {}})
                 part[key].update(super_part.get(key, {}))
+        # Set as default part
         if part.get("default", False) == True:
             if self.default_part_name:
                 raise Exception(f"{part['_name']} and {self.default_part_name} cannot both be the default part")
             self.default_part_name = part["_name"]
+        # Methods
         for method_name, method in part.get("methods", {}).items():
             returns = method.get("returns", "()")
             arguments: list = method.get("arguments", [])
@@ -47,8 +50,10 @@ class PartDefinitionsGenerator():
             for arg_name, arg_type in _parse_list_dict(arguments):
                 arguments_code.append(f"{arg_name}: {arg_type}")
             code.append(f"{method_name}: ({', '.join(arguments_code)}) -> {returns}")
+        # Properties
         for property_name, property_value in part.get("properties", {}).items():
             code.append(f"{property_name}: {property_value}")
+        # Events
         i = -1
         event_code = ""
         for event_name, event in part.get("events", {}).items():
@@ -61,8 +66,10 @@ class PartDefinitionsGenerator():
                 event_code += f"Connect: ((self: {part['_name']}, event: {event_name}, callback: ({', '.join(event_arguments_code)}) -> ()) -> EventConnection)"
             else:
                 event_code += f"\n        & ((self: {part['_name']}, event: {event_name}, callback: ({', '.join(event_arguments_code)}) -> ()) -> EventConnection)"
+        # There cannot be 0 events
         if i == -1:
             raise Exception(f"{part['_name']} has no events? {part}")
+        # Finish code
         code.append(event_code)
         code_sep = f",\n    "
         return f"type {part['_name']} = {{\n    {code_sep.join(code)}\n}}"
