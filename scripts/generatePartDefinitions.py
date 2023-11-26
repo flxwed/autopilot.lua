@@ -2,6 +2,13 @@ import os
 import sys
 import json
 
+READONLY_PROPERTIES = [
+    "ClassName",
+    "Position",
+    "CFrame",
+    "GUID"
+]
+
 def _parse_list_dict(listdict: list) -> list[tuple]:
     data = []
     for entry in listdict:
@@ -44,11 +51,19 @@ class PartDefinitionsGenerator():
         # Methods
         for method_name, method in part.get("methods", {}).items():
             returns = method.get("returns", "()")
-            arguments: list = method.get("arguments", [])
             arguments_code = []
             arguments_code.append(f"self: {part['_name']}")
-            for arg_name, arg_type in _parse_list_dict(arguments):
-                arguments_code.append(f"{arg_name}: {arg_type}")
+            if method_name == "Configure":
+                # Build Configure method
+                configure_code = []
+                for property_name, property_value in part.get("properties", {}).items():
+                    if property_name in READONLY_PROPERTIES:
+                        continue
+                    configure_code.append(f"{property_name}: {property_value}?")
+                arguments_code.append(f"properties: {{{', '.join(configure_code)}}}")
+            else:
+                for arg_name, arg_type in _parse_list_dict(method.get("arguments", [])):
+                    arguments_code.append(f"{arg_name}: {arg_type}")
             code.append(f"{method_name}: ({', '.join(arguments_code)}) -> {returns}")
         # Properties
         for property_name, property_value in part.get("properties", {}).items():
