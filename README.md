@@ -7,7 +7,7 @@ Full code completion for [pilot.lua](https://github.com/iimurpyh/pilot-lua/wiki/
 To get started, follow these simple steps:
 
 1. **Download the Definitions File:**
-   - Head over to the [Releases](https://github.com/your-username/autopilot.lua/releases) tab.
+   - Head over to the [Releases](https://github.com/flxwed/autopilot-lua/releases) tab.
    - Download the latest version of the `pilot.d.lua` file.
 
 3. **Install luau-lsp for VSCode:**
@@ -32,7 +32,7 @@ To get started, follow these simple steps:
 5. **Enjoy Full Code Completion:**
    - With the setup complete, you now have full code completion for `pilot.lua` in Visual Studio Code.
 
-# Build Steps
+## Build Steps
 
 If you want to build autopilot.lua from scratch, follow the steps below:
 
