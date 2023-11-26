@@ -1,0 +1,266 @@
+{
+    "Part": {
+        "default": true,
+        "properties": {
+            "ClassName": "string",
+            "Position": "Vector2",
+            "CFrame": "CFrame",
+            "GUID": "string"
+        },
+        "methods": {
+            "Trigger": {},
+            "Configure": {
+                "arguments": [{"properties": "Properties"}]
+            }
+        },
+        "events": {
+            "Triggered": [],
+            "Configured": []
+        }
+    },
+    "Gyro": {
+        "extends": "Part",
+        "methods": {
+            "PointAt": {
+                "arguments": [{"position": "Vector3"}]
+            }
+        }
+    },
+    "Keyboard": {
+        "extends": "Part",
+        "methods": {
+            "SimulateKeyPress": {
+                "arguments": [{"key": "string?"}, {"player": "string"}]
+            },
+            "SimulateTextInput": {
+                "arguments": [{"input": "string?"}, {"player": "string"}]
+            }
+        },
+        "events": {
+            "KeyPressed": [{"key": "Enum.KeyCode"}, {"keyString": "string"}, {"state": "Enum.UserInputState"}, {"player": "string"}],
+            "TextInputted": [{"text": "string"}, {"player": "string"}]
+        }
+    },
+    "Microphone": {
+        "extends": "Part",
+        "events": {
+            "Chatted": [{"player": "string"}, {"message": "string"}]
+        }
+    },
+    "LifeSensor": {
+        "extends": "Part",
+        "methods": {
+            "GetReading": {
+                "returns": "{[string]: Vector3}"
+            }
+        }
+    },
+    "Instrument": {
+        "extends": "Part",
+        "methods": {
+            "GetReading": {
+                "arguments": [{"typeId": "number"}],
+                "returns": "number | Vector3"
+            }
+        }
+    },
+    "EnergyShield": {
+        "extends": "Part",
+        "methods": {
+            "GetShieldHealth": {
+                "returns": "number"
+            }
+        },
+        "properties": {
+            "ShieldStrength": "number",
+            "RegenerationSpeed": "number",
+            "ShieldRadius": "number"
+        }
+    },
+    "Disk": {
+        "extends": "Part",
+        "methods": {
+            "ClearDisk": {},
+            "Write": {
+                "arguments": [{"key": "string"}, {"data": "string"}]
+            },
+            "Read": {
+                "arguments": [{"key": "string"}],
+                "returns": "string"
+            },
+            "ReadEntireDisk": {
+                "returns": "{[string]: string}"
+            }
+        },
+        "properties": {
+            "ShieldStrength": "number",
+            "RegenerationSpeed": "number",
+            "ShieldRadius": "number"
+        }
+    },
+    "Bin": {
+        "extends": "Part",
+        "methods": {
+            "GetAmount": {
+                "returns": "number"
+            },
+            "GetResource": {
+                "returns": "string"
+            }
+        }
+    },
+    "Container": {
+        "extends": "Bin"
+    },
+    "Modem": {
+        "extends": "Part",
+        "methods": {
+            "PostRequest": {
+                "arguments": [{"domain": "string"}, {"data": "string"}]
+            },
+            "GetRequest": {
+                "arguments": [{"domain": "string"}],
+                "returns": "string"
+            },
+            "SendMessage": {
+                "arguments": [{"data": "string"}, {"id": "number"}]
+            },
+            "RealPostRequest": {
+                "arguments": [{"domain": "string"}, {"data": "string"}, {"asyncBool": "boolean"}, {"transformFunction": "(...any) -> ()"}, {"optionalHeaders": "{[string]: any}?"}],
+                "returns": "{response: string, success: boolean}"
+            }
+        },
+        "events": {
+            "MessageSent": [{"data": "string"}]
+        }
+    },
+    "Screen": {
+        "extends": "Part",
+        "methods": {
+            "GetDimensions": {
+                "returns": "Vector2"
+            },
+            "ClearElements": {
+                "arguments": [{"className": "string?"}, {"properties": "Properties?"}]
+            },
+            "CreateElement": {
+                "arguments": [{"className": "string"}, {"properties": "Properties"}],
+                "returns": "ScreenObject"
+            }
+        }
+    },
+    "TouchScreen": {
+        "extends": "Screen",
+        "methods": {
+            "GetCursor": {
+                "returns": "Cursor"
+            },
+            "GetCursors": {
+                "returns": "{Cursor}"
+            }
+        },
+        "events": {
+            "CursorMoved": [{"cursor": "Cursor"}],
+            "CursorPressed": [{"cursor": "Cursor"}],
+            "CursorReleased": [{"cursor": "Cursor"}]
+        }
+    },
+    "TouchSensor": {
+        "extends": "Part",
+        "events": {
+            "Touched": []
+        }
+    },
+    "Button": {
+        "extends": "Part",
+        "events": {
+            "OnClick": [{"player": "string"}]
+        }
+    },
+    "Light": {
+        "extends": "Part",
+        "methods": {
+            "SetColor": {
+                "arguments": [{"color": "Color3"}]
+            }
+        }
+    },
+    "Rail": {
+        "extends": "Part",
+        "methods": {
+            "SetPosition": {
+                "arguments": [{"depth": "number"}]
+            }
+        }
+    },
+    "StarMap": {
+        "extends": "Part",
+        "methods": {
+            "GetBodies": {
+                "returns": "Iterator<string, nil>"
+            },
+            "GetSystems": {
+                "returns": "Iterator<string, nil>"
+            }
+        }
+    },
+    "Telescope": {
+        "extends": "Part",
+        "methods": {
+            "GetCoordinate": {
+                "returns": "RegionInfo"
+            },
+            "WhenRegionLoads": {
+                "arguments": [{"callback": "(regionData: RegionInfo) -> ()"}]
+            }
+        }
+    },
+    "Speaker": {
+        "extends": "Part",
+        "methods": {
+            "PlaySound": {
+                "arguments": [{"soundId": "number"}]
+            },
+            "ClearSounds": {},
+            "Chat": {
+                "arguments": [{"message": "string"}]
+            }
+        }
+    },
+    "Reactor": {
+        "extends": "Part",
+        "methods": {
+            "GetFuel": {
+                "returns": "{[number]: number}"
+            },
+            "GetTemp": {
+                "returns": "number"
+            }
+        }
+    },
+    "Dispenser": {
+        "extends": "Part",
+        "methods": {
+            "Dispense": {}
+        }
+    },
+    "Faucet": {
+        "extends": "Dispenser"
+    },
+    "Servo": {
+        "extends": "Dispenser",
+        "methods": {
+            "SetAngle": {
+                "arguments": [{"angle": "number"}]
+            }
+        }
+    },
+    "BlackBox": {
+        "extends": "Part",
+        "methods": {
+            "GetLogs": {
+                "returns": "RegionLog"
+            }
+        }
+    }
+}
