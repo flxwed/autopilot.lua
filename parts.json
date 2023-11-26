@@ -20,6 +20,12 @@
     },
     "Gyro": {
         "extends": "Part",
+        "properties": {
+            "Seek": "string",
+            "DisableWhenUnpowered": "boolean",
+            "MaxTorque": "Vector3",
+            "TriggerWhenSeeked": "boolean"
+        },
         "methods": {
             "PointAt": {
                 "arguments": [{"position": "Vector3"}]
@@ -57,6 +63,10 @@
     },
     "Instrument": {
         "extends": "Part",
+        "--warning": "Property 'Type' may have incorrect type",
+        "properties": {
+            "Type": "number"
+        },
         "methods": {
             "GetReading": {
                 "arguments": [{"typeId": "number"}],
@@ -114,6 +124,9 @@
     },
     "Modem": {
         "extends": "Part",
+        "properties": {
+            "NetworkID": "number"
+        },
         "methods": {
             "PostRequest": {
                 "arguments": [{"domain": "string"}, {"data": "string"}]
@@ -136,6 +149,9 @@
     },
     "Screen": {
         "extends": "Part",
+        "properties": {
+            "VideoID": "number"
+        },
         "methods": {
             "GetDimensions": {
                 "returns": "Vector2"
@@ -173,12 +189,20 @@
     },
     "Button": {
         "extends": "Part",
+        "properties": {
+            "KeyInput": "string",
+            "TriggerMode": "number"
+        },
         "events": {
             "OnClick": [{"player": "string"}]
         }
     },
     "Light": {
         "extends": "Part",
+        "properties": {
+            "Brightness": "number",
+            "LightRange": "number"
+        },
         "methods": {
             "SetColor": {
                 "arguments": [{"color": "Color3"}]
@@ -206,6 +230,9 @@
     },
     "Telescope": {
         "extends": "Part",
+        "properties": {
+            "ViewCoordinates": "string"
+        },
         "methods": {
             "GetCoordinate": {
                 "returns": "RegionInfo"
@@ -217,6 +244,10 @@
     },
     "Speaker": {
         "extends": "Part",
+        "properties": {
+            "Audio": "number",
+            "Pitch": "number"
+        },
         "methods": {
             "PlaySound": {
                 "arguments": [{"soundId": "number"}]
@@ -249,6 +280,11 @@
     },
     "Servo": {
         "extends": "Part",
+        "properties": {
+            "ServoSpeed": "number",
+            "AngleStep": "number",
+            "Responsiveness": "number"
+        },
         "methods": {
             "SetAngle": {
                 "arguments": [{"angle": "number"}]
@@ -261,6 +297,179 @@
             "GetLogs": {
                 "returns": "RegionLog"
             }
+        }
+    },
+    "Assembler": {
+        "extends": "Part",
+        "properties": {
+            "Assemble": "string"
+        }
+    },
+    "Thruster": {
+        "extends": "Part",
+        "properties": {
+            "Propulsion": "number"
+        }
+    },
+    "Switch": {
+        "extends": "Part",
+        "properties": {
+            "SwitchValue": "boolean"
+        }
+    },
+    "Pump": {
+        "extends": "Part",
+        "properties": {
+            "LiquidToPump": "string"
+        }
+    },
+    "IonRocket": {
+        "extends": "Thruster"
+    },
+    "Motor": {
+        "extends": "Part",
+        "properties": {
+            "Power": "number",
+            "Ratio": "number"
+        }
+    },
+    "Hydroponic": {
+        "extends": "Part",
+        "properties": {
+            "Grow": "string"
+        }
+    },
+    "Boombox": {
+        "extends": "Part",
+        "properties": {
+            "Audio": "number"
+        }
+    },
+    "Extractor": {
+        "extends": "Part",
+        "properties": {
+            "MaterialToExtract": "string"
+        }
+    },
+    "Laser": {
+        "extends": "Part",
+        "properties": {
+            "DamageOnlyPlayers": "boolean"
+        }
+    },
+    "MiningLaser": {
+        "extends": "Extractor"
+    },
+    "BeaconName": {
+        "extends": "Part",
+        "properties": {
+            "BeaconName": "string",
+            "ShowOnMap": "boolean"
+        }
+    },
+    "Transformer": {
+        "extends": "Part",
+        "properties": {
+            "LoopTime": "number"
+        }
+    },
+    "GravityGenerator": {
+        "extends": "Part",
+        "properties": {
+            "Gravity": "number"
+        }
+    },
+    "Hologram": {
+        "extends": "Part",
+        "properties": {
+            "UserId": "number"
+        }
+    },
+    "ConveyorBelt": {
+        "extends": "Part",
+        "properties": {
+            "ConveyorBeltSpeed": "number"
+        }
+    },
+    "Rocket": {
+        "extends": "Thruster"
+    },
+    "HyperDrive": {
+        "extends": "Part",
+        "properties": {
+            "Coordinates": "string"
+        }
+    },
+    "Antenna": {
+        "extends": "Part",
+        "properties": {
+            "AntennaID": "string"
+        }
+    },
+    "Polysilicon": {
+        "extends": "Part",
+        "--warning": "Property 'PolysiliconMode' may have incorrect type",
+        "properties": {
+            "PolysiliconMode": "number",
+            "Frequency": "number"
+        }
+    },
+    "TimeSensor": {
+        "extends": "Part",
+        "--warning": "Property 'Time' may have incorrect type",
+        "properties": {
+            "Time": "string"
+        }
+    },
+    "Microcontroller": {
+        "extends": "Part",
+        "properties": {
+            "Code": "string"
+        }
+    },
+    "RemoteControl": {
+        "extends": "Part",
+        "properties": {
+            "RemoteControlRange": "number"
+        }
+    },
+    "Port": {
+        "extends": "Part",
+        "properties": {
+            "PortID": "number"
+        }
+    },
+    "TriggerSwitch": {
+        "extends": "Switch"
+    },
+    "DelayWire": {
+        "extends": "Part",
+        "properties": {
+            "DelayTime": "number"
+        }
+    },
+    "Hatch": {
+        "extends": "Switch"
+    },
+    "TemperatureSensor": {
+        "extends": "Part",
+        "properties": {
+            "TemperatureRange": "string"
+        }
+    },
+    "Camera": {
+        "extends": "Part",
+        "properties": {
+            "VideoID": "number"
+        }
+    },
+    "Valve": {
+        "extends": "Switch"
+    },
+    "StorageSensor": {
+        "extends": "Part",
+        "properties": {
+            "QuantityRange": "string"
         }
     }
 }
