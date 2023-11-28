@@ -18,16 +18,34 @@ type Cursor = {
     Pressed: boolean
 }
 type RegionInfo = {
+    Type: "Planet",
+    SubType: nil,
     Name: string,
-    Type: "Planet" | "Star",
-    SubType: string,
-    Color: Color3,
     TidallyLocked: boolean,
-    Resources: {string},
+    HasRings: boolean,
+    BeaconCount: number
+} | {
+    Type: "Planet",
+    SubType: "Desert" | "Terra" | "EarthLike" | "Ocean" | "Tundra" | "Forest" | "Exotic" | "Barren" | "Gas",
+    Name: string,
+    Color: Color3,
+    Resources: { string },
     Gravity: number,
-    Temperature: number,
-    BeaconCount: number,
-    HasRings: boolean
+    HasAtmosphere: boolean,
+    TidallyLocked: boolean,
+    HasRings: boolean,
+    BeaconCount: number
+} | {
+    Type: "BlackHole",
+    Name: string,
+    Size: number,
+    BeaconCount: number
+} | {
+    Type: "Star",
+    SubType: "Red" | "Orange" | "Yellow" | "Blue" | "Neutron",
+    Name: string,
+    Size: number,
+    BeaconCount: number
 }
 type RegionLog = {
     {
