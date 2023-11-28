@@ -9,9 +9,7 @@
         },
         "methods": {
             "Trigger": {},
-            "Configure": {
-                "arguments": [{"properties": "Properties"}]
-            }
+            "Configure": {"--comment": "Autofilled by definitions generator"}
         },
         "events": {
             "Triggered": [],
@@ -157,10 +155,10 @@
                 "returns": "Vector2"
             },
             "ClearElements": {
-                "arguments": [{"className": "string?"}, {"properties": "Properties?"}]
+                "arguments": [{"className": "string?"}, {"properties": "{[string]: any}?"}]
             },
             "CreateElement": {
-                "arguments": [{"className": "string"}, {"properties": "Properties"}],
+                "arguments": [{"className": "string"}, {"properties": "{[string]: any}"}],
                 "returns": "ScreenObject"
             }
         }

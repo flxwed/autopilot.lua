@@ -1,6 +1,5 @@
 -- Utility Types
 type PortLike = number | {GUID: string}
-type Properties = {[string]: any}
 type Iterator<K, V> = () -> (K, V)
 
 -- Microcontroller Types
@@ -8,7 +7,7 @@ type EventConnection = {
     Unbind: (self: EventConnection) -> ()
 }
 type ScreenObject = {
-    ChangeProperties: (self: ScreenObject, properties: Properties) -> (),
+    ChangeProperties: (self: ScreenObject, properties: {[string]: any}) -> (),
     AddChild: (self: ScreenObject, child: ScreenObject) -> (),
     Destroy: (self: ScreenObject) -> ()
 }
