@@ -61,7 +61,6 @@
     },
     "Instrument": {
         "extends": "Part",
-        "--warning": "Property 'Type' may have incorrect type",
         "properties": {
             "Type": "number"
         },
@@ -406,7 +405,6 @@
     },
     "Polysilicon": {
         "extends": "Part",
-        "--warning": "Property 'PolysiliconMode' may have incorrect type",
         "properties": {
             "PolysiliconMode": "number",
             "Frequency": "number"
@@ -414,7 +412,6 @@
     },
     "TimeSensor": {
         "extends": "Part",
-        "--warning": "Property 'Time' may have incorrect type",
         "properties": {
             "Time": "string"
         }
