@@ -21,7 +21,7 @@ def main():
     with open(license_file, 'r') as fr:
         for line in fr.readlines():
             header_content += f"  {line}"
-    header_content += "\n  https://github.com/flxwed/autopilot-lua/\n--]]\n"
+    header_content += "\n  https://github.com/flxwed/autopilot.lua/\n--]]\n"
     # Generate types
     content = ""
     with open(types_file, 'r') as fr:
