@@ -11,13 +11,13 @@ To get started, follow these simple steps:
    - Download the latest version of the `pilot.d.lua` file.
 
 3. **Install luau-lsp for VSCode:**
-   - Install JohnnyMorganz's [luau-lsp](https://github.com/JohnnyMorganz/luau-lsp) extension for Visual Studio Code.
+   - Install JohnnyMorganz's [luau-lsp](https://github.com/JohnnyMorganz/luau-lsp) extension for Visual Studio Code. ([Marketplace link](https://marketplace.visualstudio.com/items?itemName=JohnnyMorganz.luau-lsp))
 
-4. **Configure VSCode Settings:**
-   - Place `pilot.d.lua` in your project directory.
+4. **Create Your Project Folder:**
+   - Create a folder to put your Waste of Space Project(s), then right click it and `Open With Code`
+   - Place `pilot.d.lua` in your folder.
    - Create a `.vscode` folder in your project directory.
-   - Inside the `.vscode` folder, create a `settings.json` file.
-   - Add the following properties to `settings.json`:
+   - Inside the `.vscode` folder, create a `settings.json` file and paste the following code:
 
      ```json
      {
@@ -29,8 +29,11 @@ To get started, follow these simple steps:
      }
      ```
 
+   - **Reload the window for the definitions to load.** (`CTRL+Shift+P` -> `Reload Window`)
+
 5. **Enjoy Full Code Completion:**
    - With the setup complete, you now have full code completion for `pilot.lua` in Visual Studio Code.
+   - **You must have the folder open for autocomplete to work.** Opening individual files does not work.
 
 ## Build Steps
 
@@ -61,4 +64,4 @@ If you want to build autopilot.lua from scratch, follow the steps below:
 
 We welcome contributions and bug reports. Feel free to fork the repository, make your changes, and submit a pull request. If you encounter any issues or have suggestions for improvement, please open an issue.
 
-Happy coding with autopilot.lua!
+If you are having issues with setup, feel free to DM me before opening an issue. (`@3nfg`)
