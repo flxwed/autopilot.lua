@@ -7,13 +7,16 @@ Full code completion for [pilot.lua](https://github.com/iimurpyh/pilot-lua/wiki/
 To get started, follow these simple steps:
 
 1. **Download the Definitions File:**
+
    - Head over to the [Releases](https://github.com/flxwed/autopilot.lua/releases) tab.
    - Download the latest version of the `pilot.d.lua` file.
 
-3. **Install luau-lsp for VSCode:**
+2. **Install luau-lsp for VSCode:**
+
    - Install JohnnyMorganz's [luau-lsp](https://github.com/JohnnyMorganz/luau-lsp) extension for Visual Studio Code. ([Marketplace link](https://marketplace.visualstudio.com/items?itemName=JohnnyMorganz.luau-lsp))
 
-4. **Create Your Project Folder:**
+3. **Create Your Project Folder:**
+
    - Create a folder to put your Waste of Space Project(s), then right click it and `Open With Code`
    - Place `pilot.d.lua` in your folder.
    - Create a `.vscode` folder in your project directory.
@@ -21,17 +24,15 @@ To get started, follow these simple steps:
 
      ```json
      {
-         "luau-lsp.sourcemap.enabled": false,
-         "luau-lsp.types.roblox": true,
-         "luau-lsp.types.definitionFiles": [
-             "./pilot.d.lua"
-         ]
+       "luau-lsp.sourcemap.enabled": false,
+       "luau-lsp.types.roblox": true,
+       "luau-lsp.types.definitionFiles": ["./pilot.d.lua"]
      }
      ```
 
    - **Reload the window for the definitions to load.** (`CTRL+Shift+P` -> `Reload Window`)
 
-5. **Enjoy Full Code Completion:**
+4. **Enjoy Full Code Completion:**
    - With the setup complete, you now have full code completion for `pilot.lua` in Visual Studio Code.
    - **You must have the folder open for autocomplete to work.** Opening individual files does not work.
 
@@ -40,6 +41,7 @@ To get started, follow these simple steps:
 If you want to build autopilot.lua from scratch, follow the steps below:
 
 1. **Clone the Repository**
+
    - Clone the repository to your local machine
 
      ```
@@ -47,6 +49,7 @@ If you want to build autopilot.lua from scratch, follow the steps below:
      ```
 
 2. **Generate Definitions via Script**
+
    - Open your cloned repository in your favorite code editor
    - Run `scripts/generateDefinitions.py` and pass the project directory as the first argument.
    - After the script finishes, the generated code can be found at `build/pilot.d.lua`.
